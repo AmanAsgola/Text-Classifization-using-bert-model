@@ -1,0 +1,62 @@
+2023-11-10 01:12:05.955938: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-11-10 01:12:05.956003: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-11-10 01:12:05.956226: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-11-10 01:12:08.460533: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+
+Using device: cuda
+
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+Loading data from /content/shared_data/dataset_1_sliced.jsonl...
+Loaded 1535 items.
+2023/11/10 01:12:26 INFO mlflow.tracking.fluent: Experiment with name 'trainer-text-classification' does not exist. Creating a new experiment.
+
+Training Epoch 1: 100% 77/77 [01:47<00:00,  1.39s/it]
+Epoch 1/4 - Average training loss: 0.3161671929448456
+Validating: 100% 10/10 [00:04<00:00,  2.18it/s]
+Average validation loss: 0.15376933254301547
+Training Epoch 2: 100% 77/77 [01:48<00:00,  1.40s/it]
+Epoch 2/4 - Average training loss: 0.13937007456824377
+Validating: 100% 10/10 [00:04<00:00,  2.13it/s]
+Average validation loss: 0.1537418495863676
+Training Epoch 3: 100% 77/77 [01:49<00:00,  1.43s/it]
+Epoch 3/4 - Average training loss: 0.059851849258139536
+Validating: 100% 10/10 [00:04<00:00,  2.12it/s]
+Average validation loss: 0.15541990334168077
+Training Epoch 4: 100% 77/77 [01:50<00:00,  1.44s/it]
+Epoch 4/4 - Average training loss: 0.0422392538688206
+Validating: 100% 10/10 [00:04<00:00,  2.11it/s]
+Average validation loss: 0.155574744194746
+
+Accuracy: 0.9477124183006536
+Training Class-wise metrics:
+monologic: Precision = 0.92, Recall = 0.95, F1 = 0.94
+dialogic: Precision = 0.97, Recall = 0.95, F1 = 0.96
+Testing: 100% 10/10 [00:04<00:00,  2.11it/s]
+Average test loss: 0.1247628622688353
+
+Model: BERT
+
+- Accuracy: 0.948
+- Precision: 0.944
+- Recall: 0.944
+- F1 Score: 0.944
+- AUC-ROC: 0.944
+- Matthews Correlation Coefficient (MCC): 0.888
+- Confusion Matrix:
+           monologic  dialogic
+monologic         52         4
+dialogic           4        94
+
+monologic: Precision = 0.929, Recall = 0.929, F1 = 0.929
+dialogic: Precision = 0.959, Recall = 0.959, F1 = 0.959
+
+2023/11/10 01:20:08 WARNING mlflow.utils.requirements_utils: Found torch version (2.1.0+cu118) contains a local version label (+cu118). MLflow logged a pip requirement for this package as 'torch==2.1.0' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
+2023/11/10 01:20:14 WARNING mlflow.utils.requirements_utils: Found torch version (2.1.0+cu118) contains a local version label (+cu118). MLflow logged a pip requirement for this package as 'torch==2.1.0' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
+2023/11/10 01:20:14 WARNING mlflow.utils.requirements_utils: Found jaxlib version (0.4.20+cuda11.cudnn86) contains a local version label (+cuda11.cudnn86). MLflow logged a pip requirement for this package as 'jaxlib==0.4.20' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
+/usr/local/lib/python3.10/dist-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
